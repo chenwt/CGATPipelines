@@ -467,7 +467,7 @@ def run(**kwargs):
         # such as v_hmem.
         # Note that limiting resident set sizes (RSS) with ulimit is not
         # possible in newer kernels.
-        script += "ulimit -v %i\n" % IOTools.human2bytes(job_memory)
+        script += "ulimit -v %i || true \n" % IOTools.human2bytes(job_memory)
         script += expandStatement(statement,
                                   ignore_pipe_errors=ignore_pipe_errors)
         script += "\n"
